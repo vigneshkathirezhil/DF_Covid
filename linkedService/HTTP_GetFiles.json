@@ -1,10 +1,15 @@
 {
 	"name": "HTTP_GetFiles",
 	"properties": {
+		"parameters": {
+			"HTTPBaseUrl": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://github.com",
+			"url": "@{linkedService().HTTPBaseUrl}",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
