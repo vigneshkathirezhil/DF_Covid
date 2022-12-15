@@ -54,7 +54,7 @@
 							"typeProperties": {
 								"variableName": "BaseUrl",
 								"value": {
-									"value": "@item()",
+									"value": "@item().Baseurl",
 									"type": "Expression"
 								}
 							}
