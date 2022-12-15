@@ -39,7 +39,7 @@
 					{
 						"activity": "GetListFileToDownload",
 						"dependencyConditions": [
-							"Completed"
+							"Succeeded"
 						]
 					}
 				],
