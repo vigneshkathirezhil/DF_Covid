@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "GetListFileToDownload",
+				"name": "LookUp_GetListFileToDownload",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -33,11 +33,11 @@
 				}
 			},
 			{
-				"name": "ForEach1",
+				"name": "IterateTheFileDownload",
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "GetListFileToDownload",
+						"activity": "LookUp_GetListFileToDownload",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -45,6 +45,11 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('LookUp_GetListFileToDownload').output",
+						"type": "Expression"
+					},
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "SetForEachValues",
