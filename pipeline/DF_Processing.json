@@ -43,9 +43,31 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"activities": [
+						{
+							"name": "SetForEachValues",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "BaseUrl",
+								"value": {
+									"value": "@item()",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
 			}
 		],
+		"variables": {
+			"BaseUrl": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
