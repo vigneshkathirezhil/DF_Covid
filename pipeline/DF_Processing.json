@@ -103,6 +103,10 @@
 										"ParameterBaseUrl": {
 											"value": "@item().sourceBaseURL",
 											"type": "Expression"
+										},
+										"ParameterRelativeURL": {
+											"value": "@item().sourceRelativeURL",
+											"type": "Expression"
 										}
 									}
 								}

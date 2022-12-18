@@ -1,0 +1,21 @@
+{
+	"name": "DD_DownloadFile_Http",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SA_Processing_List_Download",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
