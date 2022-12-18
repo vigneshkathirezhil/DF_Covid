@@ -56,8 +56,11 @@
 							"type": "SetVariable",
 							"dependsOn": [],
 							"typeProperties": {
-								"variableName": "BaseUrl",
-								"value": ""
+								"variableName": "sourceBaseURL",
+								"value": {
+									"value": "@item().sourceBaseURL",
+									"type": "Expression"
+								}
 							}
 						}
 					]
