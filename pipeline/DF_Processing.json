@@ -52,28 +52,9 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Set downloadvariables",
-							"type": "SetVariable",
-							"dependsOn": [],
-							"typeProperties": {
-								"variableName": "sourceBaseURL",
-								"value": {
-									"value": "@item().sourceBaseURL",
-									"type": "Expression"
-								}
-							}
-						},
-						{
 							"name": "DownloadThefiles",
 							"type": "Copy",
-							"dependsOn": [
-								{
-									"activity": "Set downloadvariables",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
+							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
