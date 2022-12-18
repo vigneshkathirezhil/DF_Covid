@@ -68,6 +68,17 @@
 				}
 			}
 		],
+		"parameters": {
+			"sourceBaseURL": {
+				"type": "string"
+			},
+			"sourceRelativeURL": {
+				"type": "string"
+			},
+			"sinkFileName": {
+				"type": "string"
+			}
+		},
 		"variables": {
 			"BaseUrl": {
 				"type": "String"

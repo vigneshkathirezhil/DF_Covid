@@ -1,0 +1,20 @@
+{
+	"name": "DS_Http_DownloadFile",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HTTP_GetFiles",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
