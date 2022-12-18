@@ -52,17 +52,10 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "SetForEachValues",
+							"name": "Set downloadvariables",
 							"type": "SetVariable",
 							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "BaseUrl",
-								"value": {
-									"value": "@item().sourceBaseURL",
-									"type": "Expression"
-								}
-							}
+							"userProperties": []
 						}
 					]
 				}
