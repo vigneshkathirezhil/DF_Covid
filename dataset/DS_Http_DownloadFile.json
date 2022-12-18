@@ -3,7 +3,19 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "HTTP_GetFiles",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"HTTPBaseUrl": {
+					"value": "@dataset().ParameterBaseUrl",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"ParameterBaseUrl": {
+				"type": "string",
+				"defaultValue": "https://github.com"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
