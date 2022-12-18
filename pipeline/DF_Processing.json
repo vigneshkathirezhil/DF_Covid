@@ -62,6 +62,51 @@
 									"type": "Expression"
 								}
 							}
+						},
+						{
+							"name": "DownloadThefiles",
+							"type": "Copy",
+							"dependsOn": [
+								{
+									"activity": "Set downloadvariables",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "DelimitedTextSource",
+									"storeSettings": {
+										"type": "HttpReadSettings",
+										"requestMethod": "GET"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextReadSettings"
+									}
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "DS_Http_DownloadFile",
+									"type": "DatasetReference",
+									"parameters": {
+										"ParameterBaseUrl": {
+											"value": "@item().sourceBaseURL",
+											"type": "Expression"
+										}
+									}
+								}
+							]
 						}
 					]
 				}
