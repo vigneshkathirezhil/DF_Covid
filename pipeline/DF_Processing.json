@@ -55,25 +55,23 @@
 							"name": "Set downloadvariables",
 							"type": "SetVariable",
 							"dependsOn": [],
-							"userProperties": []
+							"typeProperties": {
+								"variableName": "BaseUrl",
+								"value": ""
+							}
 						}
 					]
 				}
 			}
 		],
-		"parameters": {
+		"variables": {
 			"sourceBaseURL": {
-				"type": "string"
+				"type": "String"
 			},
 			"sourceRelativeURL": {
-				"type": "string"
+				"type": "String"
 			},
 			"sinkFileName": {
-				"type": "string"
-			}
-		},
-		"variables": {
-			"BaseUrl": {
 				"type": "String"
 			}
 		},
