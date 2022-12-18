@@ -15,13 +15,20 @@
 			"ParameterBaseUrl": {
 				"type": "string",
 				"defaultValue": "https://github.com"
+			},
+			"ParameterRelativeURL": {
+				"type": "String"
 			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "HttpServerLocation"
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().ParameterRelativeURL",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
