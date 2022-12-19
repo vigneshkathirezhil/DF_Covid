@@ -46,6 +46,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('LookUp_GetListFileToDownload').output.value",
+						"type": "Expression"
+					},
 					"isSequential": true
 				}
 			}
