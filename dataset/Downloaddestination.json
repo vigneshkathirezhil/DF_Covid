@@ -1,0 +1,22 @@
+{
+	"name": "Downloaddestination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SA_Processing_List_Download",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "cases_deaths.csv",
+				"fileSystem": "working"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
