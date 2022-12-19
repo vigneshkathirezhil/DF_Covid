@@ -29,7 +29,8 @@
 					"dataset": {
 						"referenceName": "ReadJsonFileToDownload",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -45,10 +46,6 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
-					"items": {
-						"value": "@activity('LookUp_GetListFileToDownload').output.firstRow",
-						"type": "Expression"
-					},
 					"isSequential": true
 				}
 			}
