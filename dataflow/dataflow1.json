@@ -29,6 +29,12 @@
 				},
 				{
 					"name": "pivot1"
+				},
+				{
+					"name": "Lookupcountry"
+				},
+				{
+					"name": "SikFileAfterlookups"
 				}
 			],
 			"scriptLines": [
@@ -79,10 +85,29 @@
 				"          source,",
 				"          date,",
 				"          country_special = country+country_code),",
-				"     pivotBy(indicator),",
+				"     pivotBy(indicator, ['confirmed cases', 'deaths']),",
 				"     count = sum(daily_count),",
 				"     columnNaming: '$N$V',",
-				"     lateral: true) ~> pivot1"
+				"     lateral: true) ~> pivot1",
+				"pivot1, CountryLookups lookup(pivot1@country == CountryLookups@country,",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> Lookupcountry",
+				"Lookupcountry select(mapColumn(",
+				"          country = pivot1@country,",
+				"          country_code_2_digit,",
+				"          country_code_3_digit,",
+				"          population = pivot1@population,",
+				"          country_code,",
+				"          source,",
+				"          date,",
+				"          country_special,",
+				"          country = CountryLookups@country,",
+				"          continent,",
+				"          population = CountryLookups@population",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SikFileAfterlookups"
 			]
 		}
 	}
