@@ -47,7 +47,9 @@
 				"          date,",
 				"          rate_14_day,",
 				"          source,",
-				"          case_indicator = indicator",
+				"          case_indicator = indicator,",
+				"          each(match(type == 'string'),",
+				"               'number_'+ $$ = $$)",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> selectonlyrequiredfields"
