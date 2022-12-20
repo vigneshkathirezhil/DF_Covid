@@ -115,7 +115,7 @@
 				"     skipDuplicateMapOutputs: true) ~> SelectAfterlookups",
 				"SelectAfterlookups sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     partitionFileNames:[''],",
+				"     partitionFileNames:['oupfinal.csv'],",
 				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
