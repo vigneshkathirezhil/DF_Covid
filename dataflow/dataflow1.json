@@ -34,7 +34,7 @@
 					"name": "Lookupcountry"
 				},
 				{
-					"name": "SikFileAfterlookups"
+					"name": "SelectAfterlookups"
 				}
 			],
 			"scriptLines": [
@@ -98,16 +98,13 @@
 				"          country_code_2_digit,",
 				"          country_code_3_digit,",
 				"          population = pivot1@population,",
-				"          country_code,",
-				"          source,",
+				"          {countconfirmed cases},",
+				"          countdeaths,",
 				"          date,",
-				"          country_special,",
-				"          country = CountryLookups@country,",
-				"          continent,",
-				"          population = CountryLookups@population",
+				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> SikFileAfterlookups"
+				"     skipDuplicateMapOutputs: true) ~> SelectAfterlookups"
 			]
 		}
 	}
