@@ -10,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "DataFlow"
+				},
+				{
+					"dataset": {
+						"referenceName": "SA_CountryLookUp",
+						"type": "DatasetReference"
+					},
+					"name": "CountryLookups"
 				}
 			],
 			"sinks": [],
@@ -39,6 +46,16 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> DataFlow",
+				"source(output(",
+				"          country as string,",
+				"          country_code_2_digit as string,",
+				"          country_code_3_digit as string,",
+				"          continent as string,",
+				"          population as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> CountryLookups",
 				"DataFlow filter(continent =='Europe' && not(isNull(country_code))) ~> filter1",
 				"filter1 select(mapColumn(",
 				"          country,",
