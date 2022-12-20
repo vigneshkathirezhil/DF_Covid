@@ -19,6 +19,9 @@
 				},
 				{
 					"name": "selectonlyrequiredfields"
+				},
+				{
+					"name": "pivot1"
 				}
 			],
 			"scriptLines": [
@@ -51,8 +54,18 @@
 				"          each(match(name=='date'),",
 				"               'reported'+'_string' = $$)",
 				"     ),",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> selectonlyrequiredfields"
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> selectonlyrequiredfields",
+				"selectonlyrequiredfields pivot(groupBy(country,",
+				"          country_code,",
+				"          population,",
+				"          source,",
+				"          reported_string,",
+				"          country_special = country+country_code),",
+				"     pivotBy(indicator),",
+				"     count = sum(daily_count),",
+				"     columnNaming: '$N$V',",
+				"     lateral: true) ~> pivot1"
 			]
 		}
 	}
