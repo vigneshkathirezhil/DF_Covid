@@ -13,22 +13,44 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "filter1"
+				},
+				{
+					"name": "selectonlyrequiredfields"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          country as string,",
 				"          country_code as string,",
 				"          continent as string,",
-				"          population as string,",
+				"          population as long,",
 				"          indicator as string,",
-				"          daily_count as string,",
-				"          date as string,",
-				"          rate_14_day as string,",
+				"          daily_count as short,",
+				"          date as date,",
+				"          rate_14_day as double,",
 				"          source as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> DataFlow"
+				"     ignoreNoFilesFound: false) ~> DataFlow",
+				"DataFlow filter(continent =='Europe' && not(isNull(country_code))) ~> filter1",
+				"filter1 select(mapColumn(",
+				"          country,",
+				"          country_code,",
+				"          continent,",
+				"          population,",
+				"          indicator,",
+				"          daily_count,",
+				"          date,",
+				"          rate_14_day,",
+				"          source,",
+				"          case_indicator = indicator",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectonlyrequiredfields"
 			]
 		}
 	}
