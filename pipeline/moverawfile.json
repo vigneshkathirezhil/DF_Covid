@@ -118,7 +118,10 @@
 				"outputs": [
 					{
 						"referenceName": "flatfiledest",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"flatfilename": "flatparameter.csv"
+						}
 					}
 				]
 			}
