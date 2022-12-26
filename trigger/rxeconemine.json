@@ -1,0 +1,17 @@
+{
+	"name": "rxeconemine",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2022-12-26T14:53:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
